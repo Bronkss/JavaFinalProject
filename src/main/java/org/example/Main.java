@@ -1,22 +1,26 @@
 package org.example;
 
-/**
- * Задание на дом :
- * • Подумать над структурой класса Ноутбук для магазина техники - выделить поля и методы. Реализовать в java.
- * • Создать множество ноутбуков.
- * • Написать метод, который будет запрашивать у пользователя критерий (или критерии) фильтрации и выведет ноутбуки,
- * отвечающие фильтру. Критерии фильтрации можно хранить в Map. Например:
- * “Введите цифру, соответствующую необходимому критерию:
- * 1 - ОЗУ
- * 2 - Объем ЖД
- * 3 - Операционная система
- * 4 - Цвет …ё
- * • Далее нужно запросить минимальные значения для указанных критериев - сохранить параметры фильтрации можно также в Map.
- * • Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
- */
+import org.example.model.Filter;
+import org.example.model.Laptop;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
+        Set<Laptop> set = new HashSet<>();
+        set.add(new Laptop("laptop1", "Asus", 16, "Windows", 256, "black"));
+        set.add(new Laptop("laptop2", "HP", 8, "Linux", 512, "white"));
+        set.add(new Laptop("laptop3", "Lenovo", 32, "Windows", 1024, "gold"));
+        set.add(new Laptop("laptop4", "Apple", 16, "macOS", 512, "grey"));
+        set.add(new Laptop("laptop5", "Apple", 16, "macOS", 512, "light-grey"));
+        set.add(new Laptop("laptop6", "Apple", 32, "macOS", 512, "red"));
+        set.add(new Laptop("laptop7", "Asus", 64, "Windows", 2048, "white"));
+        set.add(new Laptop("laptop8", "Acer", 8, "Linux", 512, "yellow"));
+        set.add(new Laptop("laptop9", "Acer", 8, "Linux", 512, "green"));
 
+        Filter operation = new Filter(set);
+        operation.start();
 
     }
 }
